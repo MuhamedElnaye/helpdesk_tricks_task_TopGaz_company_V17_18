@@ -1,0 +1,59 @@
+<odoo>
+    <record id="view_helpdesk_ticket_tree_inherit_custom" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree.inherit.custom</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="x_customer_name" optional="1"/>
+                <field name="user_id" optional="1"/>
+                <field name="x_customer_phone" optional="1"/>
+                <!--                <field name="x_customer_address" optional="1"/>-->
+                <field name="x_case_number" optional="1"/>
+                <field name="x_issue_description" optional="1"/>
+                <field name="x_purchase_date" optional="1"/>
+                <field name="x_case_date" optional="1"/>
+                <field name="cost" optional="1"/>
+                <field name="street" optional="1"/>
+                <field name="street2" optional="1"/>
+                <field name="city" optional="1"/>
+                <field name="state_id" optional="1"/>
+                <field name="technician_name" optional="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_helpdesk_ticket_form_inherit_custom" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit.custom</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group/group[2]" position="after">
+                <group string="End User Information" style="flex-direction: column;">
+                    <group style="width: 100%;">
+                        <field name="x_customer_name"/>
+                        <field name="x_customer_phone"/>
+                    </group>
+                    <group string="Address" style="width: 100%;">
+                        <group>
+                            <field name="country_id"/>
+                            <field name="state_id"/>
+                            <field name="city"/>
+                        </group>
+                        <group>
+                            <field name="street"/>
+                            <field name="street2"/>
+                        </group>
+                    </group>
+                </group>
+                <group string="Case Information">
+                    <field name="x_purchase_date"/>
+                    <field name="x_case_number"/>
+                    <field name="x_case_date"/>
+                    <field name="x_issue_description"/>
+                    <field name="technician_name"/>
+                    <field name="cost"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

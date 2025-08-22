@@ -1,4 +1,3 @@
-# helpdesk_tricks_task_TopGaz_company_V17_18
 # Helpdesk Customization Module
 
 ## Overview
